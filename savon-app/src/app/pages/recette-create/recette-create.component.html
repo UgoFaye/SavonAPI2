@@ -1,0 +1,63 @@
+<form #recipeForm="ngForm" (ngSubmit)="submitRecette()">
+  <div class="form-group">
+    <label>Titre</label>
+    <input type="text" class="form-control" name="titre" [(ngModel)]="recetteDTO.titre" required>
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" name="description" [(ngModel)]="recetteDTO.description" required></textarea>
+  </div>
+
+  <div class="ingredients-section">
+    <h4>Ingrédients</h4>
+    <button type="button" class="btn btn-primary" (click)="openModal()">Ajouter un ingrédient</button>
+
+    <table class="table mt-3" *ngIf="recetteDTO.ligneIngredients.length">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Quantité (g)</th>
+          <th>Pourcentage</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ligne of recetteDTO.ligneIngredients; let i = index">
+          <td>{{ getIngredientName(ligne.ingredient) }}</td>
+          <td>
+            <input type="number" class="form-control" [(ngModel)]="ligne.quantite" name="quantite_{{i}}"
+              (change)="majPourcentages()" required min="1">
+          </td>
+          <td>{{ ligne.pourcentage | number:'1.1-1' }}%</td>
+          <td>
+            <button type="button" class="btn btn-danger btn-sm" (click)="removeIngredient(i)">×</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Sélectionner un ingrédient</h5>
+      </div>
+      <div class="modal-body">
+        <select class="form-control" [(ngModel)]="ingredientIdSelect">
+          <option *ngFor="let ing of listeingredients" [value]="ing.id">{{ ing.nom }}</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Annuler</button>
+        <button type="button" class="btn btn-primary" (click)="ajoutLigne()">Ajouter</button>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success mt-3" [disabled]="!recipeForm.form.valid || isLoading">
+    {{ isLoading ? 'Envoi en cours...' : 'Créer la recette' }}
+  </button>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+</form>

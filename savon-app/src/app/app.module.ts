@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
 import { MesRecettesComponent } from './pages/mes-recettes/mes-recettes.component';
 import { RecetteIndexComponent } from './components/recette-index/recette-index.component';
+import { RecetteCreateComponent } from './pages/recette-create/recette-create.component';
 
 
 @NgModule({
@@ -29,13 +30,15 @@ import { RecetteIndexComponent } from './components/recette-index/recette-index.
     IngredientFormComponent,
     RadarChartComponent,
     MesRecettesComponent,
-    RecetteIndexComponent
+    RecetteIndexComponent,
+    RecetteCreateComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     NgChartsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()

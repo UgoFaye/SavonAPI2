@@ -7,6 +7,7 @@ import { IngredientsComponent } from './pages/ingredients/ingredients.component'
 import { IngredientFormComponent } from './pages/ingredient-create/ingredient-create.component';
 import { MesRecettesComponent } from './pages/mes-recettes/mes-recettes.component';
 import { RecetteIndexComponent } from './components/recette-index/recette-index.component';
+import { RecetteCreateComponent } from './pages/recette-create/recette-create.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'confidentialite', component: PrivacyPolicyComponent },
   { path: 'ingredients', component: IngredientFormComponent},
   {path: 'mesrecettes', component: MesRecettesComponent},
-  {path: 'recetteindex', component: RecetteIndexComponent}
+  {path: 'recetteindex', component: RecetteIndexComponent},
+  {path: 'creerrecette', component: RecetteCreateComponent}
 ];
 
 @NgModule({
