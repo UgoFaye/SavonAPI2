@@ -1,10 +1,231 @@
 <p>ingredient-create works!</p>
 
-<form (ngSubmit)="onSubmit()">
-    <label>Nom :</label>
-    <input type="text" [(ngModel)]="ingredient.nom" name="nom" required>
+<div class="container mt-4">
+  <h2>Création d'un nouvel ingrédient</h2>
   
-  
-    <button type="submit">Enregistrer</button>
+  <form #ingredientForm="ngForm" (ngSubmit)="onSubmit()" class="mt-3">
+    <div class="mb-3">
+      <label for="nom" class="form-label">Nom de l'ingrédient:</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="nom" 
+        name="nom" 
+        [(ngModel)]="ingredient.nom" 
+        #nom="ngModel" 
+        required
+        [ngClass]="{'is-invalid': nom.invalid && (nom.dirty || nom.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="nom.invalid && (nom.dirty || nom.touched)">
+        Le nom est obligatoire.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="iode" class="form-label">Indice d'iode:</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="iode" 
+        name="iode" 
+        [(ngModel)]="ingredient.iode" 
+        #iode="ngModel"
+        required
+        min="0"
+        [ngClass]="{'is-invalid': iode.invalid && (iode.dirty || iode.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="iode.invalid && (iode.dirty || iode.touched)">
+        L'indice d'iode est obligatoire et doit être positif.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="ins" class="form-label">Indice INS:</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="ins" 
+        name="ins" 
+        [(ngModel)]="ingredient.ins" 
+        #ins="ngModel"
+        required
+        min="0"
+        [ngClass]="{'is-invalid': ins.invalid && (ins.dirty || ins.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="ins.invalid && (ins.dirty || ins.touched)">
+        L'indice INS est obligatoire et doit être positif.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="sapo" class="form-label">Saponification:</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="sapo" 
+        name="sapo" 
+        [(ngModel)]="ingredient.sapo" 
+        #sapo="ngModel"
+        required
+        min="0"
+        [ngClass]="{'is-invalid': sapo.invalid && (sapo.dirty || sapo.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="sapo.invalid && (sapo.dirty || sapo.touched)">
+        La valeur de saponification est obligatoire et doit être positive.
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="volMousse" class="form-label">Volume de mousse:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="volMousse" 
+          name="volMousse" 
+          [(ngModel)]="ingredient.volMousse" 
+          #volMousse="ngModel"
+          required
+          min="0"
+          max="10"
+          [ngClass]="{'is-invalid': volMousse.invalid && (volMousse.dirty || volMousse.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="volMousse.invalid && (volMousse.dirty || volMousse.touched)">
+          Le volume de mousse doit être entre 0 et 10.
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="tenueMousse" class="form-label">Tenue de mousse:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="tenueMousse" 
+          name="tenueMousse" 
+          [(ngModel)]="ingredient.tenueMousse" 
+          #tenueMousse="ngModel"
+          required
+          min="0"
+          max="10"
+          [ngClass]="{'is-invalid': tenueMousse.invalid && (tenueMousse.dirty || tenueMousse.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="tenueMousse.invalid && (tenueMousse.dirty || tenueMousse.touched)">
+          La tenue de mousse doit être entre 0 et 10.
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="douceur" class="form-label">Douceur:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="douceur" 
+          name="douceur" 
+          [(ngModel)]="ingredient.douceur" 
+          #douceur="ngModel"
+          required
+          min="0"
+          max="10"
+          [ngClass]="{'is-invalid': douceur.invalid && (douceur.dirty || douceur.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="douceur.invalid && (douceur.dirty || douceur.touched)">
+          La douceur doit être entre 0 et 10.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <label for="lavant" class="form-label">Pouvoir lavant:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="lavant" 
+          name="lavant" 
+          [(ngModel)]="ingredient.lavant" 
+          #lavant="ngModel"
+          required
+          min="0"
+          max="10"
+          [ngClass]="{'is-invalid': lavant.invalid && (lavant.dirty || lavant.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="lavant.invalid && (lavant.dirty || lavant.touched)">
+          Le pouvoir lavant doit être entre 0 et 10.
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="durete" class="form-label">Dureté:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="durete" 
+          name="durete" 
+          [(ngModel)]="ingredient.durete" 
+          #durete="ngModel"
+          required
+          min="0"
+          max="10"
+          [ngClass]="{'is-invalid': durete.invalid && (durete.dirty || durete.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="durete.invalid && (durete.dirty || durete.touched)">
+          La dureté doit être entre 0 et 10.
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label for="solubilite" class="form-label">Solubilité:</label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="solubilite" 
+          name="solubilite" 
+          [(ngModel)]="ingredient.solubilite" 
+          #solubilite="ngModel"
+          required
+          min="0"
+          max="10"
+          [ngClass]="{'is-invalid': solubilite.invalid && (solubilite.dirty || solubilite.touched)}"
+        >
+        <div class="invalid-feedback" *ngIf="solubilite.invalid && (solubilite.dirty || solubilite.touched)">
+          La solubilité doit être entre 0 et 10.
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="sechage" class="form-label">Temps de séchage:</label>
+      <input 
+        type="number" 
+        class="form-control" 
+        id="sechage" 
+        name="sechage" 
+        [(ngModel)]="ingredient.sechage" 
+        #sechage="ngModel"
+        required
+        min="0"
+        max="10"
+        [ngClass]="{'is-invalid': sechage.invalid && (sechage.dirty || sechage.touched)}"
+      >
+      <div class="invalid-feedback" *ngIf="sechage.invalid && (sechage.dirty || sechage.touched)">
+        Le temps de séchage doit être entre 0 et 10.
+      </div>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input 
+        type="checkbox" 
+        class="form-check-input" 
+        id="estCorpsGras" 
+        name="estCorpsGras" 
+        [(ngModel)]="ingredient.estCorpsGras"
+      >
+      <label class="form-check-label" for="estCorpsGras">Corps gras</label>
+    </div>
+
+    <div class="d-flex justify-content-between">
+      <button type="submit" class="btn btn-primary" [disabled]="!ingredientForm.valid">Enregistrer</button>
+      <button type="button" class="btn btn-secondary" (click)="resetForm()">Réinitialiser</button>
+    </div>
   </form>
-  
+</div>

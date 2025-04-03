@@ -5,7 +5,17 @@ import {
 } from 'chart.js';
 
 // 🛠️ Fix de la gestion du temps pour éviter "NotYetImplemented"
-_adapters._date.override({});
+// Implémentation correcte de l'adaptateur de date
+_adapters._date.override({
+  // Ces fonctions sont nécessaires pour éviter le NotYetImplemented
+  formats: function() { return {}; },
+  parse: function(value) { return value instanceof Date ? value.getTime() : null; },
+  format: function(time) { return new Date(time).toString(); },
+  add: function(time, amount, unit) { return time; },
+  diff: function(max, min, unit) { return max - min; },
+  startOf: function(time, unit, weekday) { return time; },
+  endOf: function(time, unit) { return time; }
+});
 
 // 🔥 Important : enregistrer les contrôleurs AVANT toute création de graphique
 Chart.register(RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);

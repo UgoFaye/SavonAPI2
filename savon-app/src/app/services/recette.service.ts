@@ -7,9 +7,13 @@ import { RecetteDTO } from '../models/RecetteDTO';
   providedIn: 'root'
 })
 export class RecetteService {
-  private apiUrl = 'http://localhost:8080/api-savon//recette'; // Remplace par ton URL d'API
+  private apiUrl = 'http://localhost:8080/api-savon/v1/recette'; // Remplace par ton URL d'API
 
   constructor(private http: HttpClient) {}
+
+  deleteAllRecettes(): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/all`);
+  }
 
   getAllRecettes(): Observable<RecetteDTO[]> {
     return this.http.get<RecetteDTO[]>(this.apiUrl);
