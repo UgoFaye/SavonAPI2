@@ -1,57 +1,87 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
+/* NavBar Component CSS */
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #b0b0b0;
-    padding: 10px 20px;
-}
-
-.logo {
-    background: #a02c91;
+    background: linear-gradient(to right, #8e2de2, #a02c91);
+    padding: 12px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
     color: white;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
-    padding: 10px 20px;
+    letter-spacing: 1px;
+    padding: 8px 15px;
     border-radius: 5px;
-}
-
-.nav-links {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+  }
+  
+  .logo:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  .nav-links {
     display: flex;
-    gap: 15px;
-}
-
-.nav-links a {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .nav-links a {
     text-decoration: none;
     color: white;
-    padding: 10px 15px;
-    background: #333;
+    padding: 8px 15px;
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-}
-
-.nav-links a i {
+    transition: all 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .nav-links a i {
     margin-right: 5px;
-}
-
-.user-profile {
+  }
+  
+  .user-profile {
     display: flex;
     align-items: center;
-    background: #1d5c7e;
-    padding: 10px;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 8px 15px;
     border-radius: 20px;
     color: white;
-}
-
-.user-icon {
-    margin-left: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .user-profile:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .user-name {
+    font-weight: 500;
+  }
+  
+  .user-icon {
     background: #4CAF50;
-    padding: 5px;
+    padding: 8px;
     border-radius: 50%;
     cursor: pointer;
-}
+    transition: all 0.3s ease;
+  }
+  
+  .user-icon:hover {
+    transform: rotate(180deg);
+    background: #45a049;
+  }
+  

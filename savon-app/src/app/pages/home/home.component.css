@@ -1,62 +1,156 @@
-.home.component{
+.home-component {
     background-color: white;
-    box-shadow: 10px 10px 50px rgb(0, 0, 0, 0.5);
-    padding: 40px 40px 50px 50px; /* top | right | bottom | left */
-    margin-bottom: 0px;
-
-    h1 {
-        font-weight: bold;
-        font-size: 2em;
-        text-align: center;
-        
-        padding-bottom: 1.5em;
-    }
-
-    h2 {
-        font-size: 1.5em;
-        font-weight: bold;
-        padding-top: 0.8em;
-        padding-bottom: 0.5em;  
-        color: var(--green-charter);   
-    }
-
-    h3 {
-        font-size: 1.1em;
-        font-weight: bold;
-        padding-top: 0.8em;
-        padding-bottom: 0.2em;
-        color: var(--green-charter);
-    }
-
-    h4 {
-        font-size: 1.0em;
-        font-weight: bold;
-        padding-top: 0.8em;
-        padding-bottom: 0.2em;
-        color: var(--green-charter);
-    }
-
-    p {
-        padding-left: 1em;
-        text-align: justify;
-    }
-
-    ul {
-        padding-left: 3.0em;
-    }
-
-    .icon {
-        color: var(--purple-charter);
-    }
-
-    a {
-        color: var(--purple-charter); /* Change la couleur des liens */
-        text-decoration: none; /* Supprime le soulignement */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 1200px;
+  }
+  
+  .home-component h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #8e2de2;
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 15px;
+  }
+  
+  .home-component h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #8e2de2, #a02c91);
+    border-radius: 3px;
+  }
+  
+  .home-component p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+  }
+  
+  .image-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    max-width: 320px;
+  }
+  
+  .image-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: all 0.5s ease;
+  }
+  
+  .image-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .logo-section {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .logo-section img {
+    width: 180px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+  }
+  
+  .logo-section img:hover {
+    transform: scale(1.1);
+  }
+  
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(to right, #8e2de2, #a02c91);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(142, 45, 226, 0.4);
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(142, 45, 226, 0.6);
+  }
+  
+  a {
+    color: #a02c91;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  a:hover {
+    color: #8e2de2;
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #8e2de2;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+  
+  /* Variables de couleur pour cohérence avec le reste du site */
+  :root {
+    --primary-color: #a02c91;
+    --secondary-color: #8e2de2;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .home-component {
+      padding: 25px;
+      margin: 15px;
     }
     
-    /* Pour changer la couleur au survol */
-    a:hover {
-        color: var(--green-charter); /* Change la couleur au survol */
-        text-decoration: underline; /* Ajoute un soulignement au survol si souhaité */
+    .home-component h2 {
+      font-size: 1.7em;
     }
-}
+    
+    .image-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }

@@ -1,47 +1,50 @@
-
-<div class="home.component">
-    <h2>Bienvenue sur notre application</h2>
-
+<div class="home-component">
+    <h2>Bienvenue sur notre application de savonnerie</h2>
+  
     <p>
-        Avec notre application vous allez pouvoir formuler vos propres recettes de savon
-        en utilisant la saponification à froid.
+      Avec notre application, vous allez pouvoir formuler vos propres recettes de savon
+      en utilisant la méthode de saponification à froid. Créez, sauvegardez et partagez
+      vos créations artisanales en toute simplicité.
     </p>
-
-    <div class="container row mb-4">
-        <div class="col-12 col-lg-5 text-center py-4 ms-4">
-            <img src="./assets/Logo-Sav-App-02.jpeg"
-            alt="Logo standard de la société ADEPRO"
-            style="width: 300px; box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.5);">
-        </div>
-    
-        <div class="col-12 col-lg-5 text-center py-4 ms-0">
-            <img src="./assets/fond-01.jpeg"
-            alt="Logo standard de la société ADEPRO"
-            style="width: 300px; box-shadow: 10px 10px 20px rgb(0, 0, 0, 0.5);">
-        </div>
+  
+    <div class="image-container">
+      <div class="image-card">
+        <img src="./assets/Logo-Sav-App-02.jpeg"
+          alt="Logo SavApp - Application de création de savons"
+          title="SavApp - Votre assistant de formulation">
+      </div>
+  
+      <div class="image-card">
+        <img src="./assets/fond-01.jpeg"
+          alt="Savons artisanaux fabriqués avec SavApp"
+          title="Des savons naturels et personnalisés">
+      </div>
     </div>
-
+  
     <p>
-        Vous pouvez calculer des recettes avec la rubrique <a routerLink="/calculator"><b>"Calculateur"</b></a>.
-        Mais vous pourrez également sauvegarder vos recettes pour les retrouver ultérieurement en vous inscrivant.
+      Vous pouvez calculer des recettes avec notre 
+      <a routerLink="/calculator"><strong>Calculateur</strong></a> intuitif.
+      En vous inscrivant, vous pourrez également sauvegarder vos recettes pour les retrouver 
+      ultérieurement et suivre votre progression dans l'art de la savonnerie.
     </p>
-
-    <p>
-        Ce site vous est mis à disposition par la société <b>ADEPRO</b>.
-    </p>
-    
-
-    <div class="text-center mt-3 mb-4">
-        <img    src="./assets/logo.png"
-        alt="Logo standard de la société ADEPRO"
-        style="width: 200px;">
+  
+    <div class="text-center">
+      <a href="creerrecette" class="cta-button">Commencer une recette</a>
     </div>
-
+  
     <p>
-        Découvrez en plus à notre sujet en consultant la rubrique <a routerLink="/about"><b>"A propos"</b></a>.
+      Ce site vous est mis à disposition par la société <strong>ADEPRO</strong>,
+      spécialiste des solutions numériques pour l'artisanat.
     </p>
-    
-
-
-
-</div>
+  
+    <div class="logo-section">
+      <img src="./assets/logo.png"
+        alt="Logo de la société ADEPRO"
+        title="ADEPRO - Développement de solutions digitales">
+    </div>
+  
+    <p>
+      Découvrez-en plus à notre sujet en consultant la rubrique 
+      <a routerLink="/about"><strong>À propos</strong></a>.
+    </p>
+  </div>
